@@ -48,3 +48,7 @@ The players.ini file contains a mapping of players' identifiers (such as STEAMID
     "[U:1:58669676]" "vip"
 }
 ```
+
+---
+
+Thanks to CS2Fixes projet (Poggu & Xen) for providing a code for managing adresses and detours

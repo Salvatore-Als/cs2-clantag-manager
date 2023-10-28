@@ -174,7 +174,6 @@ void CPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName, int 
 
 	if (!clantag)
 	{
-		Debug("Invalid clantag for steamid %s", steamid);
 		return;
 	}
 
