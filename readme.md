@@ -51,4 +51,4 @@ The players.ini file contains a mapping of players' identifiers (such as STEAMID
 
 ---
 
-Thanks to CS2Fixes projet (Poggu & Xen) for providing a code for managing adresses and detours
+Thanks to CS2Fixes project (Poggu & Xen) for providing a code for managing adresses and detours
