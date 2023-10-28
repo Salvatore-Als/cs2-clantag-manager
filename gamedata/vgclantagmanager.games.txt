@@ -1,0 +1,35 @@
+"Games"
+{
+    "csgo"
+    {
+        "Signatures"
+        {
+            "SetClanTag"
+            {
+                "library"       "server"
+                "windows"       "\x48\x89\x5C\x24\x10\x57\x48\x83\xEC\x20\x48\x8B\xF9\x48\x8D\x4C\x24\x30"
+                "linux"         "\x55\x48\x89\xE5\x41\x55\x41\x54\x53\x48\x89\xFB\x48\x8D\x7D\xD8\x48\x83\xEC\x18\xE8\x2A\x2A\x2A\x2A\x4C\x8B\x65\xD8\x4C\x39\xA3\xD8\x09\x00\x00"
+            }
+            "NetworkStateChanged"
+            {
+                "library"		"server"
+                "windows"		"\x4C\x8B\xC9\x48\x8B\x09\x48\x85\xC9\x74\x2A\x48\x8B\x41\x10"
+                "linux"			"\x4C\x8B\x07\x4D\x85\xC0\x74\x2A\x49\x8B\x40\x10"
+            }
+            "StateChanged"
+            {
+                "library"		"server"
+                "windows"		"\x48\x89\x54\x24\x10\x55\x53\x57\x41\x55"
+                "linux"			"\x55\x48\x89\xE5\x41\x57\x41\x56\x41\x55\x41\x54\x53\x89\xD3"
+            }
+        }
+        "Offsets"
+        {
+            "GameEntitySystem"
+            {
+                "windows"   "88"
+                "linux"     "80"
+            }
+        }
+    }
+}
