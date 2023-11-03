@@ -62,7 +62,6 @@ SH_DECL_HOOK4_void(IServerGameClients, ClientPutInServer, SH_NOATTRIB, 0, CPlaye
 CPlugin g_CPlugin;
 IVEngineServer2 *g_pEngine = nullptr;
 ICvar *icvar = nullptr;
-IGameEventManager2 *g_pGameEventManager = nullptr;
 
 CGlobalVars *g_pGlobals = nullptr;
 CAddresses *g_CAddresses = nullptr;
@@ -130,13 +129,6 @@ bool CPlugin::Load(PluginId id, ISmmAPI *ismm, char *error, size_t maxlen, bool 
 		return false;
 	}
 
-	g_pGameEventManager = (IGameEventManager2 *)(CALL_VIRTUAL(uintptr_t, 91, g_pSource2Server) - 8);
-	if (!g_pGameEventManager)
-	{
-		Fatal("Unable to find the IGameEventManager2");
-		return false;
-	}
-
 	if (!InitDetours(g_CGameConfig))
 	{
 		Fatal("Unable to init Detours");
@@ -178,6 +170,11 @@ void CPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName, int 
 	}
 
 	CBasePlayerController *pPlayerController = (CBasePlayerController *)g_pEntitySystem->GetBaseEntity((CEntityIndex)(slot.Get() + 1));
+
+	if(!pPlayerController) {
+		return;
+	}
+	
 	g_CAddresses->SetClanTag(pPlayerController, clantag);
 }
 
@@ -214,7 +211,7 @@ const char *CPlugin::GetLicense()
 
 const char *CPlugin::GetVersion()
 {
-	return "1.0";
+	return "1.0.2";
 }
 
 const char *CPlugin::GetDate()

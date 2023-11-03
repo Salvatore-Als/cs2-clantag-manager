@@ -7,7 +7,6 @@
 #include "entity/cbaseplayercontroller.h"
 
 extern CEntitySystem *g_pEntitySystem;
-extern IGameEventManager2 *g_pGameEventManager;
 
 /*
 DECLARE_DETOUR(ClientSettingsChanged, Detour_ClientSettingsChanged);
