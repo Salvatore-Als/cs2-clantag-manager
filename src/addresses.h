@@ -26,7 +26,6 @@ public:
 
     void (*NetworkStateChanged)(int64 chainEntity, int64 offset, int64 a3);
     void (*StateChanged)(void *networkTransmitComponent, CEntityInstance *ent, int64 offset, int16 a4, int16 a5);
-    void (*SetClanTag)(void *CBasePlayerController, const char *tag);
 
     void Clean();
 

@@ -12,7 +12,6 @@ void CAddresses::Init(CGameConfig *g_CGameConfig)
 
     RESOLVE_SIG(g_CGameConfig, "NetworkStateChanged", CAddresses::NetworkStateChanged);
     RESOLVE_SIG(g_CGameConfig, "StateChanged", CAddresses::StateChanged);
-    RESOLVE_SIG(g_CGameConfig, "SetClanTag", CAddresses::SetClanTag);
 }
 
 void CAddresses::Clean()

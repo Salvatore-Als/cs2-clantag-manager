@@ -6,7 +6,7 @@
 #include "addresses.h"
 #include "utils/module.h"
 #include "entity2/entitysystem.h"
-#include "entity/cbaseentity.h"
+#include "entity/ccsplayercontroller.h"
 #include <iostream>
 #include <cstdlib>
 #include "detours.h"
@@ -169,13 +169,13 @@ void CPlugin::Hook_ClientPutInServer(CPlayerSlot slot, char const *pszName, int 
 		return;
 	}
 
-	CBasePlayerController *pPlayerController = (CBasePlayerController *)g_pEntitySystem->GetBaseEntity((CEntityIndex)(slot.Get() + 1));
+	CCSPlayerController *pPlayerController = (CCSPlayerController *)g_pEntitySystem->GetBaseEntity((CEntityIndex)(slot.Get() + 1));
 
 	if(!pPlayerController) {
 		return;
 	}
-	
-	g_CAddresses->SetClanTag(pPlayerController, clantag);
+
+	pPlayerController->m_szClan() = CUtlSymbolLarge(clantag);
 }
 
 void CPlugin::Hook_StartupServer(const GameSessionConfiguration_t &config, ISource2WorldSession *, const char *)
@@ -211,7 +211,7 @@ const char *CPlugin::GetLicense()
 
 const char *CPlugin::GetVersion()
 {
-	return "1.0.2";
+	return "1.1.0";
 }
 
 const char *CPlugin::GetDate()
